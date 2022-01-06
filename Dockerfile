@@ -19,12 +19,12 @@ RUN apt-get -y --no-install-recommends install tzdata \
         cmake \
         wget 
 
-RUN git clone https://gitlab.labs.nic.cz/labs/bird
+RUN git clone https://gitlab.nic.cz/labs/bird
 
 WORKDIR /home/bird
 RUN autoreconf && ./configure && make
 
-RUN cd /home && git clone https://gitlab.labs.nic.cz/labs/bird-tools
+RUN cd /home && git clone https://gitlab.nic.cz/labs/bird-tools
 RUN cp bird /home/bird-tools/netlab/common && cp birdc /home/bird-tools/netlab/common
 
 WORKDIR /home/bird-tools/netlab
